@@ -23,8 +23,12 @@ notatek na pulpicie.
 %setup -q -n %{name}-%{version}
 
 %build
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
-%{__make} \
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
