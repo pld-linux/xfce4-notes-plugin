@@ -8,6 +8,8 @@ Group:		X11/Applications
 Source0:	http://download.berlios.de/xfce-goodies/%{name}-%{version}.tar.gz
 # Source0-md5:	3fe2a4ce0bf208138b8056dd1ca6ab74
 URL:		http://xfce-goodies.berlios.de/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	xfce4-panel-devel >= 4.1.90
 Requires:	xfce4-panel >= 4.1.90
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
