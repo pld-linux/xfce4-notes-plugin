@@ -30,7 +30,8 @@ notatek na pulpicie.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-static
 
 %{__make}
 
@@ -39,6 +40,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/xfce4/panel-plugins/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
