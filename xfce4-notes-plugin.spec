@@ -1,12 +1,12 @@
 Summary:	Notes plugin for the Xfce panel
 Summary(pl):	Notatki dla Xfce
 Name:		xfce4-notes-plugin
-Version:	0.10.0
-Release:	2
+Version:	0.11.1
+Release:	1
 License:	GPL
 Group:		X11/Applications	
 Source0:	http://download.berlios.de/xfce-goodies/%{name}-%{version}.tar.gz
-# Source0-md5:	3fe2a4ce0bf208138b8056dd1ca6ab74
+# Source0-md5:	bc663b4be052ba184898b553141f08e3
 URL:		http://xfce-goodies.berlios.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -52,4 +52,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/xfce4/panel-plugins/libnotes.so
-%{_datadir}/xfce4/notes/note.png
+%{_datadir}/xfce4/notes/note_xfce.png
+ 
