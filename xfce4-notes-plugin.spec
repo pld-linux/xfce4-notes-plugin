@@ -4,7 +4,7 @@ Name:		xfce4-notes-plugin
 Version:	0.11.1
 Release:	1
 License:	GPL
-Group:		X11/Applications	
+Group:		X11/Applications
 Source0:	http://download.berlios.de/xfce-goodies/%{name}-%{version}.tar.gz
 # Source0-md5:	bc663b4be052ba184898b553141f08e3
 URL:		http://xfce-goodies.berlios.de/
@@ -53,4 +53,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/xfce4/panel-plugins/libnotes.so
 %{_datadir}/xfce4/notes/note_xfce.png
- 
