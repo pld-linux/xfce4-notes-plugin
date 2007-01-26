@@ -1,19 +1,23 @@
 Summary:	Notes plugin for the Xfce panel
-Summary(pl):	Notatki dla Xfce
+Summary(pl):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
-Version:	0.11.1
+Version:	1.4.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://download.berlios.de/xfce-goodies/%{name}-%{version}.tar.gz
-# Source0-md5:	bc663b4be052ba184898b553141f08e3
-URL:		http://xfce-goodies.berlios.de/
+Source0:	http://goodies.xfce.org/releases/xfce4-notes-plugin/%{name}-%{version}.tar.bz2
+# Source0-md5:	6f20d84bf3aadd6c974f226c04f33050
+URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-panel-devel >= 4.1.90
-Requires:	xfce4-panel >= 4.1.90
+BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	xfce4-dev-tools >= 4.4.0
+BuildRequires:	xfce4-panel-devel >= 4.4.0
+Requires(post,postun):	gtk+2
+Requires(post,postun):	hicolor-icon-theme
+Requires:	xfce4-panel >= 4.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,7 +32,8 @@ notatek na pulpicie.
 %setup -q
 
 %build
-%{__aclocal} -I m4
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -43,13 +48,21 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/xfce4/panel-plugins/*.la
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%post
+%update_icon_cache hicolor
+
+%postun
+%update_icon_cache hicolor
+
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/libnotes.so
-%{_datadir}/xfce4/notes/note_xfce.png
+%doc AUTHORS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/xfce4-popup-notes
+%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/xfce4-notes-plugin
+%{_datadir}/xfce4/panel-plugins/xfce4-notes-plugin.desktop
+%{_iconsdir}/hicolor/*/apps/*.*
