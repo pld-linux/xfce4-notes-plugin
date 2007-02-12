@@ -1,5 +1,5 @@
 Summary:	Notes plugin for the Xfce panel
-Summary(pl.UTF-8):   Notatki dla panelu Xfce
+Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
 Version:	1.4.1
 Release:	1
