@@ -1,5 +1,5 @@
 Summary:	Notes plugin for the Xfce panel
-Summary(pl):	Notatki dla panelu Xfce
+Summary(pl.UTF-8):   Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
 Version:	1.4.1
 Release:	1
@@ -24,8 +24,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 xfce4-notes is a plugin for the Xfce panel which provides a simple
 system for managing sticky notes on your desktop.
 
-%description -l pl
-xfce4-notes jest wtyczk± dla panelu Xfce pozwalaj±c± na umieszczanie
+%description -l pl.UTF-8
+xfce4-notes jest wtyczkÄ… dla panelu Xfce pozwalajÄ…cÄ… na umieszczanie
 notatek na pulpicie.
 
 %prep
