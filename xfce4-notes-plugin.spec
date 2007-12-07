@@ -1,16 +1,17 @@
 Summary:	Notes plugin for the Xfce panel
 Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
-Version:	1.4.1
+Version:	1.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://goodies.xfce.org/releases/xfce4-notes-plugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	6f20d84bf3aadd6c974f226c04f33050
+# Source0-md5:	979e3bce856ab217e7cfad14bd50cc26
+Patch0:		%{name}-locale-names.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	intltool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	xfce4-dev-tools >= 4.4.0
@@ -30,9 +31,13 @@ notatek na pulpicie.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv -f po/{nb_NO,nb}.po
+mv -f po/{pt_PT,pt}.po
 
 %build
-%{__libtoolize}
+%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
