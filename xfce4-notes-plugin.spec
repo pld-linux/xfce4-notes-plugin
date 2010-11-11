@@ -1,25 +1,22 @@
 Summary:	Notes plugin for the Xfce panel
 Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
-Version:	1.6.4
+Version:	1.7.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://goodies.xfce.org/releases/xfce4-notes-plugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	88132a8224880f01f02450020c73f9c3
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	054742ecc4bb83de6c1447b023938d3e
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
 BuildRequires:	Thunar-devel >= 0.8.0
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	intltool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	xfce4-dev-tools >= 4.4.0
-BuildRequires:	xfce4-panel-devel >= 4.4.0
+BuildRequires:	xfce4-dev-tools >= 4.6.0
+BuildRequires:	xfce4-panel-devel >= 4.6.0
 BuildRequires:	xfconf-devel >= 4.6.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires:	xfce4-panel >= 4.4.0
+Requires:	xfce4-panel >= 4.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,11 +31,6 @@ notatek na pulpicie.
 %setup -q
 
 %build
-%{__intltoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure \
 	--disable-static
 
@@ -49,9 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_datadir}/locale/nb{_NO,}
-mv $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
 
 %find_lang %{name}
 
@@ -67,7 +56,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
+%{_sysconfdir}/xdg/autostart/xfce4-notes-autostart.desktop
+%attr(755,root,root) %{_bindir}/xfce4-notes
 %attr(755,root,root) %{_bindir}/xfce4-popup-notes
+%attr(755,root,root) %{_bindir}/xfce4-notes-settings
 %attr(755,root,root) %{_libdir}/xfce4/panel-plugins/xfce4-notes-plugin
 %{_datadir}/xfce4/panel-plugins/xfce4-notes-plugin.desktop
 %{_iconsdir}/hicolor/*/apps/*.*
+%{_desktopdir}/xfce4-notes.desktop
