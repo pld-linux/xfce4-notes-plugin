@@ -2,7 +2,7 @@ Summary:	Notes plugin for the Xfce panel
 Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
 Version:	1.7.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/%{name}-%{version}.tar.bz2
@@ -14,7 +14,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 BuildRequires:	xfce4-panel-devel >= 4.6.0
 BuildRequires:	xfconf-devel >= 4.6.0
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	xfce4-panel >= 4.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
