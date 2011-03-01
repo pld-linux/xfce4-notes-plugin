@@ -1,0 +1,75 @@
+diff -ur xfce4-notes-plugin-1.7.7-orig/configure.ac xfce4-notes-plugin-1.7.7/configure.ac
+--- xfce4-notes-plugin-1.7.7-orig/configure.ac	2010-11-07 12:26:47.000000000 +0100
++++ xfce4-notes-plugin-1.7.7/configure.ac	2011-03-01 13:10:56.177331237 +0100
+@@ -53,7 +53,7 @@
+ XDT_CHECK_LIBX11_REQUIRE()
+ XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.16.0])
+ XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.14.0])
+-XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
++XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
+ XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+ XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
+ XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.6.0])
+diff -ur xfce4-notes-plugin-1.7.7-orig/src/main-panel-plugin.c xfce4-notes-plugin-1.7.7/src/main-panel-plugin.c
+--- xfce4-notes-plugin-1.7.7-orig/src/main-panel-plugin.c	2010-11-07 12:28:41.000000000 +0100
++++ xfce4-notes-plugin-1.7.7/src/main-panel-plugin.c	2011-03-01 13:10:56.177331237 +0100
+@@ -28,7 +28,7 @@
+ #include <libxfce4util/libxfce4util.h>
+ #include <config.h>
+ #include <glib/gi18n-lib.h>
+-#include <libxfcegui4/libxfcegui4.h>
++#include <libxfce4ui/libxfce4ui.h>
+ #include <gdk-pixbuf/gdk-pixdata.h>
+ #include <popup.h>
+ #include <gdk/gdk.h>
+diff -ur xfce4-notes-plugin-1.7.7-orig/src/Makefile.am xfce4-notes-plugin-1.7.7/src/Makefile.am
+--- xfce4-notes-plugin-1.7.7-orig/src/Makefile.am	2010-11-05 19:15:23.000000000 +0100
++++ xfce4-notes-plugin-1.7.7/src/Makefile.am	2011-03-01 13:10:56.181333237 +0100
+@@ -36,7 +36,7 @@
+ xfce4_notes_settings_CFLAGS =						\
+ 	@LIBX11_CFLAGS@							\
+ 	@GTK_CFLAGS@							\
+-	@LIBXFCEGUI4_CFLAGS@						\
++	@LIBXFCE4UI_CFLAGS@						\
+ 	@XFCONF_CFLAGS@							\
+ 	@UNIQUE_CFLAGS@
+ 
+@@ -44,7 +44,7 @@
+ 	$(top_builddir)/lib/libnotes.la					\
+ 	@LIBX11_LIBS@							\
+ 	@GTK_LIBS@							\
+-	@LIBXFCEGUI4_LIBS@						\
++	@LIBXFCE4UI_LIBS@						\
+ 	@XFCONF_LIBS@							\
+ 	@UNIQUE_LIBS@
+ 
+diff -ur xfce4-notes-plugin-1.7.7-orig/src/xfce4-notes-settings.c xfce4-notes-plugin-1.7.7/src/xfce4-notes-settings.c
+--- xfce4-notes-plugin-1.7.7-orig/src/xfce4-notes-settings.c	2010-11-06 21:39:34.000000000 +0100
++++ xfce4-notes-plugin-1.7.7/src/xfce4-notes-settings.c	2011-03-01 13:11:49.832145237 +0100
+@@ -25,7 +25,7 @@
+ #include <xfconf/xfconf.h>
+ #include <gtk/gtk.h>
+ #include <libxfce4util/libxfce4util.h>
+-#include <libxfcegui4/libxfcegui4.h>
++#include <libxfce4ui/libxfce4ui.h>
+ 
+ #include "defines.h"
+ #include "color.h"
+@@ -115,7 +115,7 @@
+ 
+   /* === Global settings === */
+   box = gtk_vbox_new (FALSE, BORDER);
+-  frame = xfce_create_framebox_with_content (_("Global settings"), box);
++  frame = xfce_gtk_frame_box_new_with_content (_("Global settings"), box);
+   gtk_container_set_border_width (GTK_CONTAINER (frame), BORDER);
+   gtk_container_add (GTK_CONTAINER (vbox), frame);
+ 
+@@ -163,7 +163,7 @@
+ 
+   /* === New window settings === */
+   box = gtk_vbox_new (FALSE, BORDER);
+-  frame = xfce_create_framebox_with_content (_("New group settings"), box);
++  frame = xfce_gtk_frame_box_new_with_content (_("New group settings"), box);
+   gtk_container_set_border_width (GTK_CONTAINER (frame), BORDER);
+   gtk_container_add (GTK_CONTAINER (vbox), frame);
+ 
