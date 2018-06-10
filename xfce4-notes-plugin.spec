@@ -1,13 +1,13 @@
 Summary:	Notes plugin for the Xfce panel
 Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
-Version:	1.7.7
-Release:	5
+Version:	1.8.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	42b924b23f2fec6a1099e9b7a87db4a3
-Patch0:		%{name}-ui.patch
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	31cb9520b01512a94344770b4befdb3b
+Patch0:		format-security.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
 BuildRequires:	Thunar-devel >= 1.2.0
 BuildRequires:	autoconf >= 2.63
@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel-plugins/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
 
@@ -79,8 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-notes
 %attr(755,root,root) %{_bindir}/xfce4-popup-notes
 %attr(755,root,root) %{_bindir}/xfce4-notes-settings
-%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/libnotes.so*
+%attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libnotes.so*
 %{_datadir}/xfce4-notes-plugin
-%{_datadir}/xfce4/panel-plugins/xfce4-notes-plugin-47.desktop
+%{_datadir}/xfce4/panel-plugins/xfce4-notes-plugin.desktop
 %{_iconsdir}/hicolor/*/apps/*.*
 %{_desktopdir}/xfce4-notes.desktop
