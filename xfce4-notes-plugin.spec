@@ -2,7 +2,7 @@ Summary:	Notes plugin for the Xfce panel
 Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
 Version:	1.8.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.8/%{name}-%{version}.tar.bz2
