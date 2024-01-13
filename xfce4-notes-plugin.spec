@@ -1,12 +1,12 @@
 Summary:	Notes plugin for the Xfce panel
 Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
-Version:	1.10.0
+Version:	1.11.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	https://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	2126a751c80ead1261d40a817eb24e96
+Source0:	https://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.11/%{name}-%{version}.tar.bz2
+# Source0-md5:	3750287ee726cc8a4fec815dad903786
 URL:		https://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
 BuildRequires:	Thunar-devel >= 1.2.0
 BuildRequires:	autoconf >= 2.63
@@ -83,7 +83,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-popup-notes
 %attr(755,root,root) %{_bindir}/xfce4-notes-settings
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libnotes.so*
-%{_datadir}/xfce4-notes-plugin
+%dir %{_datadir}/xfce4/notes
+%dir %{_datadir}/xfce4/notes/gtk-3.0
+%{_datadir}/xfce4/notes/gtk-3.0/gtk.css
 %{_datadir}/xfce4/panel/plugins/xfce4-notes-plugin.desktop
 %{_iconsdir}/hicolor/*/apps/*.*
 %{_desktopdir}/xfce4-notes.desktop
