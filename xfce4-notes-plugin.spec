@@ -1,12 +1,12 @@
 Summary:	Notes plugin for the Xfce panel
 Summary(pl.UTF-8):	Notatki dla panelu Xfce
 Name:		xfce4-notes-plugin
-Version:	1.11.1
+Version:	1.11.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	https://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	b20d784fae90192e0597e857a620c392
+# Source0-md5:	321d1f80e43a4d7518cd040e02915a85
 URL:		https://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
 BuildRequires:	Thunar-devel >= 1.2.0
 BuildRequires:	autoconf >= 2.63
